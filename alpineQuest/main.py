@@ -45,4 +45,4 @@ def test_create_waypoint(driver):
     parent_element = driver.find_elements(AppiumBy.XPATH, '[@resource-id="android:id/content"]')
     child_elements = parent_element.find_elements(AppiumBy.XPATH, "./*")
 
-    print(child_elements, "All element ======")
+    print(child_elements, "All elements ======")
