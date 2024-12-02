@@ -1,15 +1,14 @@
 from appium.webdriver.common.appiumby import AppiumBy
 from time import sleep
-from conftest import driver
 
-def test_open_alpine_quest(driver):
+def test_open_alpine_quest(application):
     try:
-        app_icon = driver.find_element(
+        app_icon = application.find_element(
             AppiumBy.XPATH,
             "//*[@content-desc='AlpineQuest']"
         )
     except:
-        app_icon = driver.find_element(
+        app_icon = application.find_element(
             AppiumBy.XPATH,
             "//*[@text='AlpineQuest']"
         )

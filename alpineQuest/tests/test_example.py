@@ -18,13 +18,13 @@ capabilities_options = UiAutomator2Options().load_capabilities(capabilities)
 appium_server_url = 'http://localhost:4723/wd/hub'
 
 @pytest.fixture()
-def driver():
+def application():
     app_driver = webdriver.Remote(appium_server_url, options=capabilities_options)
     yield app_driver
     if app_driver:
         app_driver.quit()
 
-def test_find_battery(driver) -> None:
-    el = driver.find_element(by=AppiumBy.XPATH, value='//*[@text="Battery"]')
+def test_find_battery(application) -> None:
+    el = application.find_element(by=AppiumBy.XPATH, value='//*[@text="Battery"]')
     el.click()
     sleep(5)

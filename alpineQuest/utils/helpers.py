@@ -1,17 +1,16 @@
 import cv2
 import numpy as np
-
 from appium.webdriver.common.appiumby import AppiumBy
 
 # Function to capture screenshot and save it
-def capture_screenshot(driver):
-    screenshot = driver.get_screenshot_as_png()
+def capture_screenshot(application):
+    screenshot = application.get_screenshot_as_png()
     with open('../screenshots/screen.png', 'wb') as file:
         file.write(screenshot)
 
 # Function to find and click on the button image
-def find_and_click_button(driver, button_image_path):
-    capture_screenshot(driver)
+def find_and_click_button(application, button_image_path):
+    capture_screenshot(application)
 
     # Load the screenshot
     screenshot = cv2.imread('../screenshots/screen.png')
@@ -36,15 +35,15 @@ def find_and_click_button(driver, button_image_path):
         click_y = y + button_height / 2
 
         # Perform the click action
-        driver.tap([(click_x, click_y)])
+        application.tap([(click_x, click_y)])
         print(f'Clicked on button at ({click_x}, {click_y})')
     else:
         print('Button not found')
 
 
-def find_element_by_xpath(driver, xpath):
+def find_element_by_xpath(application, xpath):
     try:
-        element = driver.find_element(by=AppiumBy.XPATH, value=xpath)
+        element = application.find_element(by=AppiumBy.XPATH, value=xpath)
 
         assert element is not None, "Element not found"
 
