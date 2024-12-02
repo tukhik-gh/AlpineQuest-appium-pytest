@@ -1,6 +1,6 @@
 from appium.webdriver.common.appiumby import AppiumBy
-
 from time import sleep
+from conftest import driver
 
 def test_open_alpine_quest(driver):
     try:
@@ -13,7 +13,6 @@ def test_open_alpine_quest(driver):
             AppiumBy.XPATH,
             "//*[@text='AlpineQuest']"
         )
-
     app_icon.click()
     assert "The 'Alpine quest' app has been launched."
     sleep(5)

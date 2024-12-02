@@ -1,22 +1,29 @@
-from selenium.webdriver.support.ui import WebDriverWait
 from time import sleep
-from tests.conftest import find_element_by_image_with_timeout
+from utils.helpers import find_and_click_button
 from tests.test_open_alpine_quest import test_open_alpine_quest
-# from appium.webdriver.common.touch_action import TouchAction
+import time
+
 
 def test_create_waypoint(driver):
     test_open_alpine_quest(driver)
     sleep(12)
+    click_x, click_y = find_and_click_button(driver, 'button_image.png')
+    if click_x is not None and click_y is not None:
+        driver.tap([(click_x, click_y)])  # Perform the click action
+    else:
+        print("Button not found or failed to load images.")
 
-    # Step 1
-    try:
-        element = WebDriverWait(driver, 10).until(
-            find_element_by_image_with_timeout(driver, "../images/menu.png")
-        )
-        element.click()
-    except Exception as e:
-        print(f"Error occurred: {e}")
-    finally:
-        driver.quit()
-        print("Driver status:", driver.capabilities)
-        print("Trying to find element by image...")
+
+def main(driver):
+    time.sleep(5)  # Adjust sleep time as needed for the app to load
+    button_image_path = 'path_to_your_button_image.png'  # Replace with your button image path
+
+    if find_and_click_button(driver, button_image_path):
+        # Define locator for the expected outcome (example: ID of an element that should be displayed)
+        expected_element_locator = ('id', 'expected_element_id')  # Adjust as necessary
+
+
+    driver.quit()
+
+if __name__ == '__main__':
+    main()
