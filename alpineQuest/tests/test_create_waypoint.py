@@ -1,8 +1,6 @@
 from time import sleep
 from utils.helpers import find_and_click_button
 from tests.test_open_alpine_quest import test_open_alpine_quest
-import time
-
 
 def test_create_waypoint(application):
     test_open_alpine_quest(application)

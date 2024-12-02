@@ -14,4 +14,4 @@ def test_open_alpine_quest(application):
         )
     app_icon.click()
     assert "The 'Alpine quest' app has been launched."
-    sleep(5)
+    sleep(2)
