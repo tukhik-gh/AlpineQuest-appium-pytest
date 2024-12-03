@@ -18,7 +18,7 @@ class PositioningPage(BasePage):
         return self.open_application()
     
     def click_gps_button(self):
-        return self.find_and_click_button(menu_button_selector)
+        return self.find_and_click_button_by_image(menu_button_selector)
 
     def fined_modal_title(self):
         return self.find(modal_title)
@@ -31,6 +31,6 @@ class PositioningPage(BasePage):
         return self.find(switch_on_selector)
     
     def close_gps_modal(self):
-        return self.find_and_click_button(close_gps_modal)
+        return self.find_and_click_button_by_image(close_gps_modal)
 
     

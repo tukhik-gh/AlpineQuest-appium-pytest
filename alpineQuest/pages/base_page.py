@@ -32,7 +32,7 @@ class BasePage:
             file.write(screenshot)
         
         
-    def find_and_click_button(self, button_image_path):
+    def find_and_click_button_by_image(self, button_image_path):
         self.capture_screenshot()
 
         # Load the screenshot
@@ -62,5 +62,6 @@ class BasePage:
             print(f'Clicked on button at ({click_x}, {click_y})')
         else:
             print('Button not found')
+
 
     
