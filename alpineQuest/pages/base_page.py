@@ -3,11 +3,12 @@ import numpy as np
 from time import sleep
 from appium.webdriver.common.appiumby import AppiumBy
 
+
 class BasePage:
     def __init__(self, application):
         self.application = application
-    
-    def openApplication(self):
+
+    def open_application(self):
         try:
             app_icon = self.application.find_element(
             AppiumBy.XPATH,
@@ -21,15 +22,18 @@ class BasePage:
         app_icon.click()
         assert "AlpineQuest" in self.application.current_activity, "The 'Alpine Quest' app has not been launched."
         sleep(2)
-    
-    def captureScreenshot(self):
+
+    def find(self, args):
+        return self.application.find_element(*args)
+
+    def capture_screenshot(self):
         screenshot = self.application.get_screenshot_as_png()
         with open('../screenshots/screen.png', 'wb') as file:
             file.write(screenshot)
         
         
-    def findAndClickButton(self, button_image_path):
-        self.captureScreenshot(self.application)
+    def find_and_click_button(self, button_image_path):
+        self.capture_screenshot()
 
         # Load the screenshot
         screenshot = cv2.imread('../screenshots/screen.png')
@@ -58,7 +62,5 @@ class BasePage:
             print(f'Clicked on button at ({click_x}, {click_y})')
         else:
             print('Button not found')
-        
-    def find(self, args):
-        return self.application.find_element(*args)
+
     
