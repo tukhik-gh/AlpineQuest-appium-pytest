@@ -9,9 +9,10 @@ def test_get_current_location(application):
     sleep(1)
 
     # Step 2: Click GPS icon
-    positioning_page.click_menu_button()
+    positioning_page.click_gps_button()
     sleep(1)
-    positioning_page.fined_modal_title()
+    modal_title = positioning_page.fined_modal_title()
+    assert modal_title.text == 'POSITIONING', 'The title of the modal is not POSITIONING'
 
     # Step 3: Switch on GPS
     gps_switch = positioning_page.fined_switch_location_button()

@@ -28,7 +28,7 @@ class BasePage:
 
     def capture_screenshot(self):
         screenshot = self.application.get_screenshot_as_png()
-        with open('../screenshots/screen.png', 'wb') as file:
+        with open('./screenshots/screen.png', 'wb') as file:
             file.write(screenshot)
         
         
@@ -36,7 +36,7 @@ class BasePage:
         self.capture_screenshot()
 
         # Load the screenshot
-        screenshot = cv2.imread('../screenshots/screen.png')
+        screenshot = cv2.imread('./screenshots/screen.png')
 
         # Load the button image
         button_image = cv2.imread(button_image_path)

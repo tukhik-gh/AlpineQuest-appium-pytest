@@ -1,11 +1,12 @@
 from alpineQuest.pages.base_page import BasePage
 from appium.webdriver.common.appiumby import AppiumBy
 
+
 switch_off_selector = (AppiumBy.XPATH, '(//android.widget.Switch[@text="OFF"])[1]')
 switch_on_selector = (AppiumBy.XPATH, '//android.widget.Switch[@text="ON"]')
 modal_title = (AppiumBy.XPATH, '//*[@text="POSITIONING"]')
-menu_button_selector = '../images/position.jpg'
-close_gps_modal = (AppiumBy.XPATH,'../images/position_on_red.png')
+menu_button_selector = './images/position.png'
+close_gps_modal = './images/position_on_red.png'
 
 
 class PositioningPage(BasePage):
@@ -16,7 +17,7 @@ class PositioningPage(BasePage):
     def open_app(self):
         return self.open_application()
     
-    def click_menu_button(self):
+    def click_gps_button(self):
         return self.find_and_click_button(menu_button_selector)
 
     def fined_modal_title(self):
@@ -30,6 +31,6 @@ class PositioningPage(BasePage):
         return self.find(switch_on_selector)
     
     def close_gps_modal(self):
-        return self.find_and_click_button(menu_button_selector)
+        return self.find_and_click_button(close_gps_modal)
 
     
