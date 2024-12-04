@@ -1,10 +1,11 @@
 from alpineQuest.pages.base_page import BasePage
 from appium.webdriver.common.appiumby import AppiumBy
+from alpineQuest.utils.constants import GPS_PAGE_TITLE, OFF
 
 
-switch_off_selector = (AppiumBy.XPATH, '(//android.widget.Switch[@text="OFF"])[1]')
+switch_off_selector = (AppiumBy.XPATH, f'(//android.widget.Switch[@text={OFF}])[1]')
 switch_on_selector = (AppiumBy.XPATH, '//android.widget.Switch[@text="ON"]')
-modal_title = (AppiumBy.XPATH, '//*[@text="POSITIONING"]')
+modal_title = (AppiumBy.XPATH, f'//*[@text={GPS_PAGE_TITLE}]')
 menu_button_selector = './images/position.png'
 close_gps_modal = './images/position_on_red.png'
 

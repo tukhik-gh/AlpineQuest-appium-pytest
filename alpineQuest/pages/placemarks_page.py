@@ -1,12 +1,13 @@
 from alpineQuest.pages.base_page import BasePage
 from appium.webdriver.common.appiumby import AppiumBy
+from alpineQuest.utils.constants import PLACE_MARKS, LOCAL_PLACE_MARKS, WAYPOINT
 
-place_mark_text_selector = (AppiumBy.XPATH, '//*[@text="Create a placemark"]')
-modal_title_selector = (AppiumBy.XPATH, '//*[@text="PLACEMARKS"]')
-locale_placemarks_modal_title_selector = (AppiumBy.XPATH, '//*[@text="LOCAL PLACEMARKS"]')
+place_mark_text_selector = (AppiumBy.XPATH, f'//*[@text="Create a {PLACE_MARKS}"]')
+modal_title_selector = (AppiumBy.XPATH, f'//*[@text={PLACE_MARKS}]')
+locale_placemarks_modal_title_selector = (AppiumBy.XPATH, f'//*[@text={LOCAL_PLACE_MARKS}]')
 place_mark_button_selector = './images/place_marks.png'
-waypoint_selector = (AppiumBy.XPATH, '//*[@text="Waypoint"]')
-waypoint_modal_selector = (AppiumBy.XPATH,  '//*[@text="Waypoint"]')
+waypoint_selector = (AppiumBy.XPATH, f'//*[@text={WAYPOINT}]')
+waypoint_modal_selector = (AppiumBy.XPATH,  f'//*[@text={WAYPOINT}]')
 name_input_selector = (AppiumBy.XPATH,  '//*[@text="Optional"]')
 
 
